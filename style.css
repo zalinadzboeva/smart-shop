@@ -1,0 +1,18 @@
+.data{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+}
+.card {
+    border: 1px solid #ccc;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+  }
+  .catalog{
+
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    gap: 10px;
+  }
