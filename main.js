@@ -6,7 +6,6 @@ let height = document.getElementById("rost")
 let productGrid = document.getElementById("card")
 console.log(productGrid)
 let user={
-    Age:0,
     Name:"",
     weights:0,
     height:0,
@@ -30,7 +29,6 @@ let products = [
 ];
 
 SentBtn.onclick = function(){
-    user.lothingSize=clothingsize.value
     user.Name=username.value
     user.height=height.value
     user.weights=weights.value
@@ -65,7 +63,6 @@ function createProductCard(product,i) {
     productGrid.innerHTML = "";
     for (let i = 1; i < products.length; i++) {
         if(products[i].height==profile.height &&products[i].weights==profile.weights && products[i].clothingsize==profile.clothingsize){
-            console.log("gg")
             const card = createProductCard(products[i],i);
             ProductGrid.appendChild(card);
         }
