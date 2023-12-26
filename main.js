@@ -1,4 +1,4 @@
-
+let data= document.querySelector(".data")
 let clothingsize = document.getElementById("clothingsize")
 let username = document.getElementById("name")
 let weights = document.getElementById("ves")
@@ -12,7 +12,19 @@ let user={
     clothingsize:0,
 }
 let SentBtn = document.getElementById("sentdata")
-
+data.onclick= function () {
+    console.log("htrh")
+    document.querySelector(".user").style.display = "flex";
+    SentBtn.onclick = function(){
+        user.Name=username.value
+        user.height=height.value
+        user.weights=weights.value
+        user.clothingsize=clothingsize.value
+        console.log(user)
+        localStorage.setItem('User', JSON.stringify(user))
+        document.querySelector(".user").style.display = "none";
+    }
+  };
 let products = [
     {height: 162, weights: 50, clothingsize:40  },
     {height: 160, weights: 60, clothingsize: 38},
@@ -28,14 +40,6 @@ let products = [
     {height: 155, weights: 49, clothingsize: 40 },
 ];
 
-SentBtn.onclick = function(){
-    user.Name=username.value
-    user.height=height.value
-    user.weights=weights.value
-    user.clothingsize=clothingsize.value
-    console.log(user)
-    localStorage.setItem('User', JSON.stringify(user))
-}
 const profile = JSON.parse(localStorage.getItem('User'));
 console.log(profile)
 
@@ -49,7 +53,7 @@ for (let i = 1; i < products.length; i++) {
 function createProductCard(product,i) {
     const card = document.createElement("div");
     card.className = "product-card";
-    card.innerHTML = ` <img src="cotolog/${i}.jpg">
+    card.innerHTML = ` <img src="cotolog/photo_${i}.jpg">
     <p>Рост: ${product.height} см
     <br>Вес: ${product.weights}<br>
     Размер: ${product.clothingsize}</p>`;
@@ -69,6 +73,6 @@ function createProductCard(product,i) {
     };
     if(productGrid.textContent=="")
     {
-        productGrid.innerHTML= `<p>Извините ${profile.Name} в данный момент нет товаров на вас. Похудейте, будем рады предоставить товар позже</p>`
+        productGrid.innerHTML= `<p>Извините ${profile.Name} не найдено товаров</p>`
     }
  }

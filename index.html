@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Pigy</title>
 </head>
 <body>
     <div class="header">
@@ -21,11 +21,15 @@
     </div>
     
     <div class="user">
-        <input type="text" name="username" placeholder="Имя пользователя" id="name">
-        <input type="number" name="clothingsize" placeholder="Размер одежды" id="clothingsize">
-        <input type="number" name="rost" placeholder="Pост" id="rost" >
-        <input type="number" name="ves" placeholder="Вес" id="ves" >
-        <button id="sentdata" >Отправить </button>
+        <div class="user__info">
+            <h2>Введите параметры</h2>
+            <input class="info__item" type="text" name="username" placeholder="Имя пользователя" id="name">
+            <input class="info__item" type="number" name="clothingsize" placeholder="Размер одежды" id="clothingsize">
+            <input class="info__item" type="number" name="rost" placeholder="Pост" id="rost" >
+            <input class="info__item" type="number" name="ves" placeholder="Вес" id="ves" >
+            <button class="info__item" id="sentdata" >Отправить </button>
+        </div>
+        
     </div>
     <div class="info"><p class="info__text">Кураторы этичной моды и новозеландского дизайна. Zalna-shop - это концептуальный магазин и онлайн-рай для искателей стиля. Модная коллекция, с любовью подобранная специально для вас, скрепленная индивидуальным подходом. Открыт шесть дней.</p>
     </div>

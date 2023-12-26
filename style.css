@@ -29,12 +29,24 @@ body{
 
 }
 .user{
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:99%;
+  height:400px;
+  background-color: #caafa8;
+  color: #fff;
+}
+.user__info{
   display: flex;
   flex-direction: column;
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
+   width: 300px;
+}
+.info__item{
+  margin: 10px;
+  padding: 5px;
 }
 .info{
   background-color: #fdf9f5;
@@ -76,14 +88,11 @@ body{
   margin-bottom: 20px;
 }
 
-.product-card:hover {
-    transform: scale(1.05);
-}
 
 .product-card img {
     margin-bottom: 10px;
-    margin-top: -2px;
-    height: 300px;
+    margin-top: 2px;
+    height: 450px;
 }
 
 .product-card p {
