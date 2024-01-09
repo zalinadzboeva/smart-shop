@@ -1,28 +1,32 @@
-let data= document.querySelector(".data")
+document.addEventListener("DOMContentLoaded", function() {
+    Profile();
+});
+
 let clothingsize = document.getElementById("clothingsize")
 let username = document.getElementById("name")
 let weights = document.getElementById("ves")
 let height = document.getElementById("rost")
 let productGrid = document.getElementById("card")
-console.log(productGrid)
 let user={
     Name:"",
     weights:0,
     height:0,
     clothingsize:0,
 }
+
 let SentBtn = document.getElementById("sentdata")
-data.onclick= function () {
+ function data () {
     console.log("htrh")
     document.querySelector(".user").style.display = "flex";
+    
     SentBtn.onclick = function(){
         user.Name=username.value
-        user.height=height.value
-        user.weights=weights.value
-        user.clothingsize=clothingsize.value
-        console.log(user)
-        localStorage.setItem('User', JSON.stringify(user))
+    user.height=height.value
+    user.weights=weights.value
+    user.clothingsize=clothingsize.value
+    localStorage.setItem('User', JSON.stringify(user))
         document.querySelector(".user").style.display = "none";
+        console.log("1")
     }
   };
 let products = [
@@ -39,9 +43,10 @@ let products = [
     {height: 154, weights: 60, clothingsize: 52 },
     {height: 155, weights: 49, clothingsize: 40 },
 ];
-
-const profile = JSON.parse(localStorage.getItem('User'));
-console.log(profile)
+function Profile(){
+    const profile = JSON.parse(localStorage.getItem('User'));
+    console.log("2")
+}
 
 let ProductGrid = document.getElementById("productGrid");
     
@@ -63,6 +68,8 @@ function createProductCard(product,i) {
  const filterProducts= document.getElementById("filterProducts")
 
  filterProducts.onclick=function(){
+    const profile = JSON.parse(localStorage.getItem('User'));
+    console.log("3")
     const productGrid = document.getElementById("productGrid");
     productGrid.innerHTML = "";
     for (let i = 1; i < products.length; i++) {
