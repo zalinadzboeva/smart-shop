@@ -1,32 +1,21 @@
-
-
+document.addEventListener("DOMContentLoaded", function() {
+    makeCard();
+});
+let SentBtn = document.getElementById("sentdata")
+let throwOff = document.getElementById("throwOff")
 let clothingsize = document.getElementById("clothingsize")
 let username = document.getElementById("name")
 let weights = document.getElementById("ves")
 let height = document.getElementById("rost")
 let productGrid = document.getElementById("card")
+const filterProducts= document.getElementById("filterProducts")
+
 let user={
     Name:"",
     weights:0,
     height:0,
     clothingsize:0,
 }
-
-let SentBtn = document.getElementById("sentdata")
- function data () {
-    console.log("htrh")
-    document.querySelector(".user").style.display = "flex";
-    
-    SentBtn.onclick = function(){
-        user.Name=username.value
-    user.height=height.value
-    user.weights=weights.value
-    user.clothingsize=clothingsize.value
-    localStorage.setItem('User', JSON.stringify(user))
-        document.querySelector(".user").style.display = "none";
-        console.log("1")
-    }
-  };
 let products = [
     {name:"платье",height: 162, weights: 50, clothingsize:40  },
     {name:"брюки",height: 160, weights: 60, clothingsize: 38},
@@ -41,16 +30,32 @@ let products = [
     {name:"свитер",height: 154, weights: 60, clothingsize: 52 },
     {name:"юбка",height: 155, weights: 49, clothingsize: 40 },
 ];
-    const profile = JSON.parse(localStorage.getItem('User'));
+ function UserQuestionnaire () {
+    document.querySelector(".user").style.display = "flex";
+    
+    SentBtn.onclick = function(){
+        user.Name=username.value
+        user.height=height.value
+        user.weights=weights.value
+        user.clothingsize=clothingsize.value
+        localStorage.setItem('User', JSON.stringify(user))
+        document.querySelector(".user").style.display = "none";
+    }
+  };
+
+
+const profile = JSON.parse(localStorage.getItem('User'));
     console.log("2")
 
 
 let ProductGrid = document.getElementById("productGrid");
-    
-for (let i = 1; i < products.length; i++) {
-    const card = createProductCard(products[i],i);
-    ProductGrid.appendChild(card);
-};
+
+function makeCard(){
+    for (let i = 1; i < products.length; i++) {
+        const card = createProductCard(products[i],i);
+        ProductGrid.appendChild(card);
+    };
+}
 
 function createProductCard(product,i) {
     const card = document.createElement("div");
@@ -63,14 +68,16 @@ function createProductCard(product,i) {
     Размер: ${product.clothingsize}</p>`;
     return card;
 }
-
- const filterProducts= document.getElementById("filterProducts")
+function deleteGrid (){
+    
+}
 
  filterProducts.onclick=function(){
     const profile = JSON.parse(localStorage.getItem('User'));
-    console.log("3")
+    console.log("4")
     const productGrid = document.getElementById("productGrid");
     productGrid.innerHTML = "";
+    console.log("gg")
     for (let i = 1; i < products.length; i++) {
         if(products[i].height==profile.height &&products[i].weights==profile.weights && products[i].clothingsize==profile.clothingsize){
             const card = createProductCard(products[i],i);
@@ -100,3 +107,11 @@ function createProductCard(product,i) {
         productGrid.innerHTML= `<p>Извините ${profile.Name} не найдено товаров</p>`
     }
  } 
+ 
+ throwOff.onclick= function(){
+    const profile = JSON.parse(localStorage.getItem('User'));
+    console.log("4")
+    const productGrid = document.getElementById("productGrid");
+    productGrid.innerHTML = "";
+    makeCard();
+ }
